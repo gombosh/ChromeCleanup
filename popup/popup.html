@@ -1,0 +1,36 @@
+<!-- popup/popup.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Close Tabs</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="popup.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../static/icon-32.png" alt="Extension Icon" class="extension-icon">
+        <h1>Tabs Cleanup</h1>
+    </div>
+
+    <h2>Add New Search String</h2>
+    <input type="text" id="newString" placeholder="Enter string">
+    <button id="addButton">Add</button>
+
+    <h2>Strings to Search</h2>
+    <ul id="list"></ul>
+
+    <div class="button-container">
+    <button id="closeTabsButton" class="close-tabs-button">
+        Close Tabs
+    </button>
+
+    <button id="recentlyClosedButton" class="recently-closed-button">
+        Recently Closed Tabs
+    </button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+/* <a href="https://www.flaticon.com/free-icons/cleanup" title="cleanup icons">Cleanup icons created by Andrejs Kirma - Flaticon</a> */
+/* styles.css */
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.extension-icon {
+    width: 30px;
+    /* Adjust the size as needed */
+    height: 30px;
+    /* Adjust the size as needed */
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 200px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Add styles for the remove icon */
+li {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+li:hover {
+    text-decoration: underline;
+    /* Change appearance on hover */
+}
+
+.remove-icon {
+    position: absolute;
+    right: 5px;
+    /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    /* Initially hide the icon */
+    transition: opacity 0.2s ease;
+}
+
+li:hover .remove-icon {
+    opacity: 1;
+    /* Show the icon on hover */
+}
+
+/* Styles for the close tabs button */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* Adjust the margin as needed */
+}
+
+.close-tabs-button {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-image: url('../static/close_icon.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    /* Add space between icon and left edge */
+    background-size: 20px 20px;
+    /* Adjust the size of the icon */
+    padding-left: 40px;
+    /* Adjust the padding to accommodate the icon */
+    text-align: center;
+    /* Center the text */
+    line-height: 20px;
+    /* Match the line height with icon size */
+}
