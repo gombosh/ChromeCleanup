@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Tabs Cleanup",
+  "name": "Tab Search Cleanup",
      "description": "Closes all chrome tabs according to search list.",
-  "short_name":"TabCleanup",
+  "short_name":"TabSearchCleanup",
   "author": "Doron Gombosh",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": "static/icon.png"

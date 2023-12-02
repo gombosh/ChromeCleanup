@@ -1,4 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Function to open the extension's page on the Chrome Web Store
+  const openExtensionPage = () => {
+    chrome.tabs.create({
+      url: "https://chrome.google.com/webstore/detail/your-extension-id",
+    });
+    // Replace 'your-extension-id' with your actual extension's ID from the Chrome Web Store
+  };
+
+  // Event listener for the help icon
+  document
+    .getElementById("helpButton")
+    .addEventListener("click", openExtensionPage);
+
   function updateList() {
     chrome.storage.sync.get("stringsToSearch", (data) => {
       const stringsToSearch = data.stringsToSearch || [];

@@ -5,6 +5,15 @@
     align-items: center;
 }
 
+.header h1 {
+    font-family: Arial,
+        Verdana,
+        sans-serif;
+    /* Use your custom font */
+    /* Add fallback fonts like 'sans-serif' in case the custom font fails to load */
+    /* Other styles for the header text */
+}
+
 .extension-icon {
     width: 30px;
     /* Adjust the size as needed */
@@ -31,14 +40,14 @@ input[type="text"] {
 
 button {
     padding: 5px 10px;
-    background-color: #3498db;
+    background-color: #34cadb;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #34cadb;
 }
 
 ul {
@@ -85,7 +94,7 @@ li:hover .remove-icon {
 .close-tabs-button {
     padding: 8px 12px;
     font-size: 16px;
-    background-color: #3498db;
+    background-color: #34cadb;
     color: white;
     border: none;
     cursor: pointer;
@@ -101,4 +110,19 @@ li:hover .remove-icon {
     /* Center the text */
     line-height: 20px;
     /* Match the line height with icon size */
+}
+
+.help-button {
+    display: flex;
+    align-items: center;
+}
+
+.help-button span {
+    margin-right: 5px;
+    /* Adjust the space as needed */
+}
+
+.help-icon {
+    cursor: pointer;
+    /* Add any additional styling */
 }
