@@ -10,18 +10,28 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     chrome.storage.sync.get("stringsToSearch", (data) => {
       const stringsToSearch = data.stringsToSearch || [];
 
-      const CleanSearchStrings = stringsToSearch.filter((str) => str !== "Empty");
+      const CleanSearchStrings = stringsToSearch.filter(
+        (str) => str !== "Empty"
+      );
 
       chrome.tabs.query({}, (tabs) => {
-        const tabsToClose = tabs
-          .filter((tab) => {
-            return CleanSearchStrings.some((searchString) =>
-              tab.url.includes(searchString)
-            );
-          })
-          .map((tab) => tab.id);
+        const tabsToClose = tabs.filter((tab) => {
+          return CleanSearchStrings.some((searchString) =>
+            tab.url.includes(searchString)
+          );
+        });
 
-        chrome.tabs.remove(tabsToClose);
+        const tabsClosedByExtension = tabsToClose.map((tab) => ({
+          title: tab.title, // Set description as tab title (modify as needed)
+          url: tab.url, // Save tab URL
+        }));
+
+        // Save the list of closed tabs in chrome.storage
+        chrome.storage.sync.set({ closedTabsList: tabsClosedByExtension });
+
+        tabsToClose.forEach((tab) => {
+          chrome.tabs.remove(tab.id);
+        });
       });
     });
   }

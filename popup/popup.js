@@ -92,13 +92,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to handle opening the recently closed tabs window
   function openRecentlyClosedWindow() {
-    chrome.sessions.getRecentlyClosed({ maxResults: 10 }, (sessions) => {
-      const closedTabs = sessions.filter((session) => session.tab);
+    chrome.storage.sync.get("closedTabsList", (data) => {
+      const closedTabs = data.closedTabsList || [];
 
       const closedTabsURLs = closedTabs.map((tab) => {
         return {
-          url: tab.tab.url,
-          title: tab.tab.title,
+          url: tab.url,
+          title: tab.title,
         };
       });
 
@@ -110,9 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (popup) {
         popup.document.write(
-          "<html><head><title>Recently Closed Tabs</title></head><body>"
+          "<html><head><title>Last Closed Tabs</title></head><body>"
         );
-        popup.document.write("<h1>Recently Closed Tabs</h1>");
+        popup.document.write("<h1>Last Closed Tabs</h1>");
 
         if (closedTabsURLs.length > 0) {
           closedTabsURLs.forEach((tab) => {
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
             popup.document.body.appendChild(restoreButton);
           });
         } else {
-          popup.document.write("<p>No recently closed tabs found.</p>");
+          popup.document.write("<p>No last closed tabs found.</p>");
         }
 
         popup.document.write("</body></html>");
